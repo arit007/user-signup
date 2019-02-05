@@ -66,7 +66,7 @@ def index():
         if (not username_error) and (not password_error) and (not verify_password_error) and (not email_error):
             return redirect('/welcomepage?username={0}'.format(username))
 
-    return render_template('index/form.html', title=title, username=username, email=email,
+    return render_template('form.html', title=title, username=username, email=email,
                            username_error=username_error, password_error=password_error,
                            verify_password_error=verify_password_error, email_error=email_error)
 
