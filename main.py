@@ -31,8 +31,9 @@ def index():
         verify_password = request.form['verify_password']
         email = request.form['email']
 
-        #if there is a blank space in username, it's invalid
-        #if username has fewer than 3 or greater than 20 characters, it's invalid
+        #invalid if 
+        # blank space in username
+        #username lower than 3 or greater than 20
         for i in username:
             if i.isspace():
                 username_error = 'Username cannot contain spaces.'
@@ -65,7 +66,7 @@ def index():
         if (not username_error) and (not password_error) and (not verify_password_error) and (not email_error):
             return redirect('/welcomepage?username={0}'.format(username))
 
-    return render_template('form.html', title=title, username=username, email=email,
+    return render_template('index/form.html', title=title, username=username, email=email,
                            username_error=username_error, password_error=password_error,
                            verify_password_error=verify_password_error, email_error=email_error)
 
